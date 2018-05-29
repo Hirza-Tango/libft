@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 12:02:56 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/05/29 12:49:39 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/05/29 14:46:26 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,6 @@ void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 # define CHECK_RETURN(c, r) if(c) return (r);
-# define SWAP_FREE(var, new_val){\
-	char	*temp;				\
-	temp = new_val;				\
-	free(var);					\
-	var = temp;					\
-}
 
 void			*ft_memrchr(const void *s, int c, size_t n);
 int				ft_isupper(int c);
@@ -100,5 +94,6 @@ int				ft_islower(int c);
 int				ft_isspace(int c);
 char			*ft_itoa_base(int value, int base);
 char			*ft_strndup(const char *s1, size_t n);
+void			ft_swapnfree(char **var, char *new_val);
 
 #endif
