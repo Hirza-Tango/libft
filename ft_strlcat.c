@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 09:22:06 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/05/24 13:46:51 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/05/31 13:46:28 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t			i;
 	const size_t	size = ft_strlen(dst);
 
-	if (dstsize < size)
+	if (dstsize <= size)
 		return (dstsize + ft_strlen(src));
 	i = 0;
 	while ((i < dstsize - size - 1) && src[i])
