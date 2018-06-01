@@ -22,19 +22,19 @@ CFILES=	ft_atoi.c		ft_bzero.c		ft_isalnum.c	ft_isalpha.c	\
 OBJ=$(CFILES:%.c=build/%.o)
 
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	@ar rcs $(NAME) $(OBJ)
 
 build/%.o: %.c libft.h
 	@mkdir -p build
-	$(CC) $(CFLAGS) $< -o $@
+	@$(CC) $(CFLAGS) $< -o $@
 
 all: $(NAME);
 
 clean:
-	rm -rf build/
+	@rm -rf build/
  
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
 
