@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 15:38:55 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/05/22 18:23:15 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/06/01 11:31:40 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,10 @@
 
 char	*ft_strdup(const char *s1)
 {
-	char	*result;
-	size_t	i;
+	char			*ret;
+	const size_t	len = ft_strlen(s1) + 1;
 
-	result = malloc(sizeof(char) * (ft_strlen(s1) + 1));
-	if (!result)
+	if (!(ret = malloc(len)))
 		return (NULL);
-	i = 0;
-	while (s1[i])
-	{
-		result[i] = s1[i];
-		i++;
-	}
-	result[i] = 0;
-	return (result);
+	return (ft_memcpy(ret, s1, len));
 }

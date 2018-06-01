@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/22 12:16:00 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/05/24 13:46:58 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/06/01 11:44:44 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ char	*ft_strmap(char const *s, char (*f)(char))
 
 	if (!f || !s)
 		return (NULL);
-	i = 0;
-	result = malloc((ft_strlen(s) + 1) * sizeof(char));
-	if (!result)
+	if (!(result = malloc(ft_strlen(s) + 1)))
 		return (NULL);
+	i = 0;
 	while (s[i])
 	{
 		result[i] = (*f)(s[i]);
