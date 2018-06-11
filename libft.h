@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 12:02:56 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/05/30 10:27:01 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/06/11 14:00:41 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void			*ft_memrchr(const void *s, int c, size_t n);
 int				ft_isupper(int c);
 int				ft_islower(int c);
 int				ft_isspace(int c);
-char			*ft_itoa_base(int value, int base);
+char			*ft_itoa_base(intmax_t value, int base);
 char			*ft_strndup(const char *s1, size_t n);
 void			ft_swapnfree(char **var, char *new_val);
 
