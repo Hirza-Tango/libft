@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 12:02:56 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/05/30 10:27:01 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/06/14 16:46:07 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,6 @@ int				ft_isspace(int c);
 char			*ft_itoa_base(int value, int base);
 char			*ft_strndup(const char *s1, size_t n);
 void			ft_swapnfree(char **var, char *new_val);
+size_t			ft_atou_base(const char *value, unsigned char base);
 
 #endif
