@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/14 16:45:35 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/06/14 17:16:46 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/06/17 13:31:30 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ size_t	ft_atou_base(const char *value, unsigned char base)
 	while (ft_isspace(*byte))
 		byte++;
 	result = 0;
-	while ((curr = ft_isdigit(*byte) ? *byte - '0' : *byte - 'A' + 10))
+	while (1)
 	{
+		curr = ft_isdigit(*byte) ? *byte - '0' : *byte - 'A' + 10;
 		if (!ft_isalnum(*byte) || curr >= base)
 			break ;
 		result = result * 10 + curr;

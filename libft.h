@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 12:02:56 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/06/15 16:49:30 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/06/17 15:03:40 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,6 @@ char			*ft_itoa_base(intmax_t value, int base);
 char			*ft_strndup(const char *s1, size_t n);
 void			ft_swapnfree(char **var, char *new_val);
 size_t			ft_atou_base(const char *value, unsigned char base);
+char			*ft_appendwchar(wchar_t wc, char *str);
 
 #endif
