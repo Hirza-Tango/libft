@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/22 14:21:24 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/06/11 14:01:06 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/06/18 17:39:25 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ char		*ft_itoa_base(intmax_t value, int base)
 	const char	hex_start = base < 0 ? 'a' : 'A';
 
 	base = base < 0 ? -base : base;
+	if (base == 10 && value == -9223372036854775807LL - 1)
+		return (ft_strdup("-9223372036854775808"));
 	length = 1;
 	if (base == 10 && value < 0)
 		length++;
