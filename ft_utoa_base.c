@@ -6,13 +6,14 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 12:29:14 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/06/18 12:42:57 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/06/21 13:14:50 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	recurse_print(uintmax_t value, unsigned int base, char *spot, const char f)
+static void	recurse_print(uintmax_t value, unsigned int base, char *spot,
+	const char f)
 {
 	if (value < 10 && value < base)
 		*spot = value + '0';
