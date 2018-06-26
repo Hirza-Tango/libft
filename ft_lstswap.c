@@ -6,13 +6,13 @@
 /*   By: dslogrov <dslogrov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/26 16:06:44 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/06/26 16:13:22 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/06/26 16:28:46 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_lstswap(t_list *a, t_list *b)
+void	ft_lstswap(t_list *a, t_list *b)
 {
 	void		*a_content;
 	size_t		a_size;
