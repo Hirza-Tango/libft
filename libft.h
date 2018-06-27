@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dslogrov <dslogrov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 12:02:56 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/06/26 17:08:07 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/06/27 15:27:54 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,6 @@ char			*ft_utoa_base(uintmax_t value, int base);
 void			ft_lstswap(t_list *a, t_list *b);
 t_list			**ft_lstsort(t_list **lst, int f(const void *, const void *),
 	const char reverse);
+void			ft_lstappend(t_list **alst, t_list *new);
 
 #endif
