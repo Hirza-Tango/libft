@@ -18,7 +18,7 @@ CFILES=	ft_atoi.c		ft_bzero.c		ft_isalnum.c	ft_isalpha.c	\
 		ft_tolower.c	ft_toupper.c	ft_lstnew.c		ft_lstdelone.c	\
 		ft_lstdel.c		ft_lstadd.c		ft_lstiter.c	ft_lstmap.c		\
 		ft_swapnfree.c	ft_atou_base.c	ft_utoa_base.c	ft_appendwchar.c\
-		ft_lstswap.c	ft_lstsort.c	ft_lstappend.c
+		ft_lstswap.c	ft_lstsort.c	ft_lstappend.c	ft_strmjoin.c	\
 
 OBJ=$(CFILES:%.c=build/%.o)
 

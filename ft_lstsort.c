@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dslogrov <dslogrov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/26 16:13:53 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/06/26 17:07:50 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/06/27 17:13:08 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,15 @@ t_list	**ft_lstsort(t_list **lst, int f(const void *, const void *),
 		smallest = i;
 		j = i->next;
 		while (j)
+		{
 			if ((f(j->content, i->content) < 0 && !reverse) ||
 				(f(i->content, j->content) < 0 && reverse))
 				smallest = j;
+			j = j->next;
+		}
 		if (smallest != i)
 			ft_lstswap(i, smallest);
+		i = i->next;
 	}
 	return (lst);
 }
