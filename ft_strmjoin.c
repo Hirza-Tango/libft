@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 17:26:38 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/06/27 17:47:08 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/06/29 12:15:18 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strmjoin(size_t count, ...)
 	va_list	b;
 	char	*ret;
 	size_t	len;
-	size_t		i;
+	size_t	i;
 
 	len = 0;
 	va_start(a, count);
