@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/26 16:13:53 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/06/27 17:13:08 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/07/04 14:53:18 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ t_list	**ft_lstsort(t_list **lst, int f(const void *, const void *),
 	t_list	*smallest;
 
 	i = *lst;
+	if (!lst || !*lst)
+		return (NULL);
 	while (i->next)
 	{
 		smallest = i;
