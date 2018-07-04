@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/26 16:13:53 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/07/04 14:53:18 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/07/04 16:15:13 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,23 @@
 t_list	**ft_lstsort(t_list **lst, int f(const void *, const void *),
 	const char reverse)
 {
-	t_list	*i;
-	t_list	*j;
-	t_list	*smallest;
+	t_list	**start;
+	t_list	*dup;
 
-	i = *lst;
 	if (!lst || !*lst)
-		return (NULL);
-	while (i->next)
+		return (lst);
+	start = lst;
+	dup = *lst;
+	while (dup->next)
 	{
-		smallest = i;
-		j = i->next;
-		while (j)
+		if((f(dup->content, dup->next->content) < 0 && !reverse) ||
+			(f(dup->content, dup->next->content) > 0 && reverse))
 		{
-			if ((f(j->content, i->content) < 0 && !reverse) ||
-				(f(i->content, j->content) < 0 && reverse))
-				smallest = j;
-			j = j->next;
+			ft_lstswap(dup, dup->next);
+			dup = *start;
 		}
-		if (smallest != i)
-			ft_lstswap(i, smallest);
-		i = i->next;
+		else
+			dup = dup->next;
 	}
-	return (lst);
+	return (start);
 }
