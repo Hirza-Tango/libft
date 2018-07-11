@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_getenv.c                                        :+:      :+:    :+:   */
+/*   ft_unsetenv.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/11 10:44:10 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/07/11 13:40:33 by dslogrov         ###   ########.fr       */
+/*   Created: 2018/07/11 13:36:20 by dslogrov          #+#    #+#             */
+/*   Updated: 2018/07/11 13:43:48 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-const char	*ft_getenv(const char *name, char **env)
+int		ft_unsetenv(const char *name, char **env)
 {
 	char			**dup;
+	char			**new;
+	char			**newdup;
+	size_t			size;
 
 	if (!name || !*name || ft_strchr(name, '='))
-		return (NULL);
+		return (-1);
+	size = 0;
 	dup = env;
 	while (*dup)
 	{
-		if (ft_strnequ(*dup, name,
-			MAX(ABS((size_t)(ft_strchr(*dup, '=') - *dup)), ft_strlen(name))))
-			return (*dup + ft_strlen(name) + 1);
+		if (ft_strncmp(name, *dup, ft_strlen(name)))
+			size++;
 		dup++;
 	}
-	return (NULL);
+	if (!(new = (char **)malloc(sizeof(char *) * (size + 1))))
+		return (-2);
+	newdup = new;
+	dup = env;
+	while (*dup)
+		*newdup++ = *dup++;
+	*newdup = NULL;
+	free(env);
+	env = new;
+	return (0);
 }

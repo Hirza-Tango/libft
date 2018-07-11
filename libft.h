@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 12:02:56 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/07/11 13:24:02 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/07/11 13:50:48 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,5 +109,6 @@ char			*ft_strmjoin(size_t count, ...);
 const char		*ft_getenv(const char *name, char **env);
 int				ft_setenv(const char *name, const char *value, int overwrite,
 	char **env);
+int				ft_unsetenv(const char *name, char **env);
 
 #endif
