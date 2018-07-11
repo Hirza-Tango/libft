@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 10:53:24 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/07/11 13:31:37 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/07/11 15:21:27 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,22 @@ static	size_t	tab_len(char **tab)
 	return (len);
 }
 
-static int		rebuild(const char *name, const char *value, char **env)
+static int		rebuild(const char *name, const char *value, char ***env)
 {
 	char			**dup;
-	char			**new;
+	char			**result;
 	char			**newdup;
 
-	if (!(new = (char **)malloc(sizeof(char *) * (tab_len(env) + 2))))
+	ft_putendl("DEBUG: Rebuilding...");
+	if (!(result = (char **)malloc(sizeof(char *) * (tab_len(*env) + 2))))
 		return (-2);
-	newdup = new;
-	dup = env;
+	newdup = result;
+	dup = *env;
 	while (*dup)
 		*newdup++ = *dup++;
 	if (!(*dup = ft_strnew(ft_strlen(name) + ft_strlen(value) + 2)))
 	{
-		free(new);
+		free(result);
 		return (-2);
 	}
 	*dup = ft_strcat(ft_strcat(ft_strcat(*dup, name), "="), value);
@@ -46,7 +47,7 @@ static int		rebuild(const char *name, const char *value, char **env)
 	*dup = NULL;
 	*newdup = NULL;
 	free(env);
-	env = new;
+	*env = result;
 	return (0);
 }
 
@@ -86,7 +87,7 @@ int				ft_setenv(const char *name, const char *value, int overwrite,
 		return (0);
 	else if (status == -2)
 		return (-2);
-	if (rebuild(name, value, env) == -2)
+	if (rebuild(name, value, &env) == -2)
 		return (-2);
 	return (0);
 }
