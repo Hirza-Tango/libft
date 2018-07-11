@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 12:02:56 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/06/27 17:47:14 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/07/11 13:24:02 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,9 @@ void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 # define CHECK_RETURN(c, r) if(c) return (r);
+# define MIN(X,Y) (X > Y ? Y : X)
+# define MAX(X,Y) (X < Y ? Y : X)
+# define ABS(X) (X > 0 ? X : -X)
 
 void			*ft_memrchr(const void *s, int c, size_t n);
 int				ft_isupper(int c);
@@ -103,5 +106,8 @@ t_list			**ft_lstsort(t_list **lst, int f(const void *, const void *),
 	const char reverse);
 void			ft_lstappend(t_list **alst, t_list *new);
 char			*ft_strmjoin(size_t count, ...);
+const char		*ft_getenv(const char *name, char **env);
+int				ft_setenv(const char *name, const char *value, int overwrite,
+	char **env);
 
 #endif

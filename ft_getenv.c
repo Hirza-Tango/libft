@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_getenv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/15 17:27:28 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/07/11 11:33:37 by dslogrov         ###   ########.fr       */
+/*   Created: 2018/07/11 10:44:10 by dslogrov          #+#    #+#             */
+/*   Updated: 2018/07/11 13:29:16 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+const char	*ft_getenv(const char *name, char **env)
 {
-	char	*c;
+	char			**dup;
 
-	c = (char *)s;
-	while (*c)
-		c++;
-	return (c - s);
+	if (!name || !*name || ft_strchr(name, '='))
+		return (name);
+	dup = env;
+	while (*dup)
+	{
+		if (ft_strnequ(*dup, name,
+			MAX(ABS((size_t)(ft_strchr(*dup, '=') - *dup)), ft_strlen(name))))
+			return (*dup + ft_strlen(name) + 1);
+		dup++;
+	}
+	return (NULL);
 }
