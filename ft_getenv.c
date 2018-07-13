@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 10:44:10 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/07/11 13:40:33 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/07/13 14:23:15 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ const char	*ft_getenv(const char *name, char **env)
 	if (!name || !*name || ft_strchr(name, '='))
 		return (NULL);
 	dup = env;
+
 	while (*dup)
 	{
-		if (ft_strnequ(*dup, name,
-			MAX(ABS((size_t)(ft_strchr(*dup, '=') - *dup)), ft_strlen(name))))
+		if (!ft_strncmp(*dup, name, ft_strlen(name)) && 
+			(*dup)[ft_strlen(name)] == '=')
 			return (*dup + ft_strlen(name) + 1);
 		dup++;
 	}
