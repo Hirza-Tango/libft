@@ -1,16 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_strqotsplit.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/22 14:40:44 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/07/17 09:59:27 by dslogrov         ###   ########.fr       */
+/*   Created: 2018/07/17 09:59:44 by dslogrov          #+#    #+#             */
+/*   Updated: 2018/07/17 11:52:55 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	find_quote(const char *str, int i)
+{
+	char *pos;
+
+	i++;
+	while ((pos = ft_strchr(str + i, '\"')))
+		if (str[i - 1] != '\\')
+			break ;
+	if (!pos)
+		return (0);
+	return (pos - str);
+}
 
 static int	count_words(char const *str, char c)
 {
@@ -29,6 +42,9 @@ static int	count_words(char const *str, char c)
 		{
 			if (last_was_split)
 				count++;
+			if (last_was_split && str[i] == '\"')
+				if (!(i = find_quote(str, i)))
+					return (0);
 			last_was_split = 0;
 		}
 		i++;
@@ -42,31 +58,36 @@ static void	fill_array(char **result, char const *str, char c)
 	int		i;
 	char	*start;
 
-	i = 0;
+	i = -1;
 	current_word = 0;
-	while (str[i])
-	{
-		if (str[i] == c)
-			i++;
-		else
+	while (str[++i])
+		if (str[i] == '\"')
+		{
+			start = (char *)str + i++ + 1;
+			while (str[i] && (str[i] != '\"' || str[i - 1] == '\\'))
+				i++;
+			result[current_word] = ft_strlit(start, str + i - start);
+			current_word++;
+		}
+		else if (str[i] != c)
 		{
 			start = (char *)str + i;
 			while (str[i] != c && str[i])
 				i++;
-			result[current_word] = ft_strndup(start, str + i - start);
+			result[current_word] = ft_strndup(start, str + i-- - start);
 			current_word++;
 		}
-	}
 	result[current_word] = 0;
 }
 
-char		**ft_strsplit(char const *str, char c)
+char		**ft_strqotsplit(char const *str, char c)
 {
-	char	**result;
+	char		**result;
+	const int	count = count_words(str, c);
 
-	if (!str)
+	if (!str || !count)
 		return (NULL);
-	result = malloc(sizeof(char *) * (count_words(str, c) + 1));
+	result = malloc(sizeof(char *) * (count + 1));
 	if (!result)
 		return (NULL);
 	fill_array(result, str, c);
