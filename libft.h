@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 12:02:56 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/07/17 11:39:23 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/07/18 17:41:43 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ size_t			ft_atou_base(const char *value, unsigned char base);
 char			*ft_appendwchar(wchar_t wc, char *str);
 char			*ft_utoa_base(uintmax_t value, int base);
 void			ft_lstswap(t_list *a, t_list *b);
-t_list			**ft_lstsort(t_list **lst, int f(const void *, const void *),
+t_list			**ft_lstsort(t_list **lst, long f(const void *, const void *),
 	const char reverse);
 void			ft_lstappend(t_list **alst, t_list *new);
 char			*ft_strmjoin(size_t count, ...);
