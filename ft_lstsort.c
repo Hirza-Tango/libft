@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/26 16:13:53 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/07/10 17:42:09 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/07/18 14:19:44 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,29 @@
 t_list	**ft_lstsort(t_list **lst, int f(const void *, const void *),
 	const char reverse)
 {
-	t_list	**start;
-	t_list	*dup;
+	t_list	*sorted_list;
+	t_list	*i;
+	t_list	*next;
+	t_list	*j;
 
-	if (!lst || !*lst)
-		return (lst);
-	start = lst;
-	dup = *lst;
-	while (dup->next)
+	(void)reverse;
+	sorted_list = NULL;
+	i = *lst;
+	while (i)
 	{
-		if ((f(dup->content, dup->next->content) < 0 && !reverse) ||
-			(f(dup->content, dup->next->content) > 0 && reverse))
-		{
-			ft_lstswap(dup, dup->next);
-			dup = *start;
-		}
+		next = i->next;
+		if (sorted_list == NULL || f(sorted_list->content, i->content) >= 0)
+			ft_lstadd(&sorted_list, i);
 		else
-			dup = dup->next;
+		{
+			j = sorted_list;
+			while (j->next && f(j->content, i->content) < 0)
+				j = j->next;
+			i->next = j->next;
+			j->next = i;
+		}
+		i = next;
 	}
-	return (start);
+	*lst = sorted_list;
+	return (lst);
 }
