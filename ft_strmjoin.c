@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 17:26:38 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/06/29 12:15:18 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/07/18 11:24:50 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strmjoin(size_t count, ...)
 	va_start(a, count);
 	va_copy(b, a);
 	i = 0;
-	while (i < count)
+	while (i++ < count)
 		len += ft_strlen(va_arg(a, const char *));
 	va_end(a);
 	ret = (char *)ft_strnew(len + 1);
