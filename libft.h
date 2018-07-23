@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 12:02:56 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/07/18 17:41:43 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/07/23 13:54:24 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# define BUFF_SIZE 11000
 
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *s, size_t n);
@@ -90,6 +91,8 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 # define MIN(X,Y) (X > Y ? Y : X)
 # define MAX(X,Y) (X < Y ? Y : X)
 # define ABS(X) (X > 0 ? X : -X)
+
+int				get_next_line(const int fd, char **line);
 
 void			*ft_memrchr(const void *s, int c, size_t n);
 int				ft_isupper(int c);
