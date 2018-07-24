@@ -6,13 +6,13 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/26 16:13:53 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/07/18 17:42:30 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/07/24 11:30:13 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static long	compare(long f(const void *, const void *), void *a, void *b,
+static long	compare(long (*f)(const void *, const void *), void *a, void *b,
 	const char reverse)
 {
 	if (!reverse)
@@ -21,7 +21,7 @@ static long	compare(long f(const void *, const void *), void *a, void *b,
 		return (-f(a, b));
 }
 
-t_list		**ft_lstsort(t_list **lst, long f(const void *, const void *),
+t_list		**ft_lstsort(t_list **lst, long (*f)(const void *, const void *),
 	const char reverse)
 {
 	t_list	*sorted_list;
@@ -35,12 +35,12 @@ t_list		**ft_lstsort(t_list **lst, long f(const void *, const void *),
 	{
 		next = i->next;
 		if (sorted_list == NULL ||
-			compare(f, sorted_list->content, i->content, reverse) >= 0)
+			(compare(f, sorted_list->content, i->content, reverse) >= 0L))
 			ft_lstadd(&sorted_list, i);
 		else
 		{
 			j = sorted_list;
-			while (j->next && compare(f, j->content, i->content, reverse) < 0)
+			while (j->next && (compare(f, j->content, i->content, reverse) < 0L))
 				j = j->next;
 			i->next = j->next;
 			j->next = i;
