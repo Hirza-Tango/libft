@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 09:59:44 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/07/17 11:52:55 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/07/31 16:20:17 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	find_quote(const char *str, int i)
 	return (pos - str);
 }
 
-static int	count_words(char const *str, char c)
+static int	count_words(char const *str)
 {
 	int		i;
 	int		last_was_split;
@@ -36,7 +36,7 @@ static int	count_words(char const *str, char c)
 	count = 0;
 	while (str[i])
 	{
-		if (str[i] == c)
+		if (ft_isspace(str[i]))
 			last_was_split = 1;
 		else
 		{
@@ -52,7 +52,7 @@ static int	count_words(char const *str, char c)
 	return (count);
 }
 
-static void	fill_array(char **result, char const *str, char c)
+static void	fill_array(char **result, char const *str)
 {
 	int		current_word;
 	int		i;
@@ -69,10 +69,10 @@ static void	fill_array(char **result, char const *str, char c)
 			result[current_word] = ft_strlit(start, str + i - start);
 			current_word++;
 		}
-		else if (str[i] != c)
+		else if (!ft_isspace(str[i]))
 		{
 			start = (char *)str + i;
-			while (str[i] != c && str[i])
+			while (!ft_isspace(str[i]) && str[i])
 				i++;
 			result[current_word] = ft_strndup(start, str + i-- - start);
 			current_word++;
@@ -80,16 +80,16 @@ static void	fill_array(char **result, char const *str, char c)
 	result[current_word] = 0;
 }
 
-char		**ft_strqotsplit(char const *str, char c)
+char		**ft_strqotsplit(char const *str)
 {
 	char		**result;
-	const int	count = count_words(str, c);
+	const int	count = count_words(str);
 
 	if (!str || !count)
 		return (NULL);
 	result = malloc(sizeof(char *) * (count + 1));
 	if (!result)
 		return (NULL);
-	fill_array(result, str, c);
+	fill_array(result, str);
 	return (result);
 }
