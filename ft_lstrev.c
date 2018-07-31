@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/24 14:25:48 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/07/24 14:42:38 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/07/31 13:05:03 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	reverse(t_list *curr, t_list *prev, t_list **head)
 
 void		ft_lstrev(t_list **lst)
 {
-	if (!lst)
+	if (!lst || !*lst)
 		return ;
 	reverse(*lst, NULL, lst);
 }

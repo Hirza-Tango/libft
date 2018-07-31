@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/26 16:13:53 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/07/24 14:37:16 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/07/31 13:03:30 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_list		**ft_lstsort(t_list **lst, long (*f)(const void *, const void *))
 		else
 		{
 			j = sorted_list;
-			while (j->next && (f(j->content, i->content) < 0L))
+			while (j->next && (f(j->next->content, i->content) < 0L))
 				j = j->next;
 			i->next = j->next;
 			j->next = i;
