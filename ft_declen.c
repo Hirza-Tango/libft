@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 11:30:55 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/07/31 11:31:46 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/07/31 12:00:36 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ size_t			ft_declen(uintmax_t d)
 {
 	size_t	ret;
 
-	ret = 0;
+	ret = 1;
 	while (d /= 10)
 		ret++;
 	return (ret);
