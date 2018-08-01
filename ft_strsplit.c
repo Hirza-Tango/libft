@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/22 14:40:44 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/07/17 09:59:27 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/08/01 18:36:01 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,13 @@ static void	fill_array(char **result, char const *str, char c)
 char		**ft_strsplit(char const *str, char c)
 {
 	char	**result;
+	size_t	words;
 
 	if (!str)
 		return (NULL);
-	result = malloc(sizeof(char *) * (count_words(str, c) + 1));
+	if (!(words = count_words(str, c)))
+		return (NULL);
+	result = malloc(sizeof(char *) * (words + 1));
 	if (!result)
 		return (NULL);
 	fill_array(result, str, c);
