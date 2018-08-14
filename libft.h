@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 12:02:56 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/08/13 15:35:02 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/08/14 11:55:40 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,7 @@ void			ft_tabfree(char **tab);
 void			ft_lstrev(t_list **lst);
 size_t			ft_declen(uintmax_t d);
 size_t			ft_lstlen(t_list *list);
+void			ft_lstrm(t_list **list, size_t index,
+	void (*del)(void *, size_t));
 
 #endif
