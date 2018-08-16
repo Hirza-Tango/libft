@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 13:38:44 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/08/15 13:50:59 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/08/16 15:33:40 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,20 @@ void	ft_lstrm(t_list **list, size_t index, void (*del)(void *, size_t))
 		return ;
 	if (!index)
 	{
-		next = (*list)->next;
 		ft_lstdelone(list, del);
-		*list = next;
 		return ;
 	}
 	dup = *list;
 	i = 0;
 	while (dup->next)
 	{
-		if (i == index - 1)
+		if (i++ == index - 1)
 		{
 			next = dup->next->next;
 			ft_lstdelone(&(dup->next), del);
 			dup->next = next;
 			return ;
 		}
-		i++;
 		dup = dup->next;
 	}
 }
