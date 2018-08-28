@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 12:02:56 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/08/15 13:32:46 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/08/28 11:12:09 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,21 @@ void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+typedef struct	s_d_list
+{
+	void			*content;
+	size_t			content_size;
+	struct s_d_list	*next;
+	struct s_d_list *prev;
+}				t_d_list;
+
+t_d_list		*ft_dlstnew(void const *content, size_t content_size);
+void			ft_dlstdelone(t_d_list **alst, void (*del)(void*, size_t));
+void			ft_dlstdel(t_d_list **alst, void (*del)(void*, size_t));
+void			ft_dlstadd(t_d_list **alst, t_d_list *new);
+void			ft_dlstiter(t_d_list *lst, void (*f)(t_d_list *elem));
+t_list			*ft_dlstmap(t_d_list *lst, t_d_list *(*f)(t_d_list *elem));
 
 # define CHECK_RETURN(c, r) if(c) return (r);
 # define MIN(X,Y) (X > Y ? Y : X)
