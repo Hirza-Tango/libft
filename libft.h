@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 12:02:56 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/08/28 11:12:09 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/08/31 14:16:54 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ t_list			*ft_dlstmap(t_d_list *lst, t_d_list *(*f)(t_d_list *elem));
 # define MIN(X,Y) (X > Y ? Y : X)
 # define MAX(X,Y) (X < Y ? Y : X)
 # define ABS(X) (X > 0 ? X : -X)
+# define PASS (void)0
 
 void			*ft_memrchr(const void *s, int c, size_t n);
 int				ft_isupper(int c);
