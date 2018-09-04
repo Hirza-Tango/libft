@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 12:02:56 by dslogrov          #+#    #+#             */
-/*   Updated: 2018/09/03 17:29:21 by dslogrov         ###   ########.fr       */
+/*   Updated: 2018/09/04 16:05:31 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void			ft_dlstdelone(t_d_list **alst, void (*del)(void*, size_t));
 void			ft_dlstdel(t_d_list **alst, void (*del)(void*, size_t));
 void			ft_dlstadd(t_d_list **alst, t_d_list *new);
 void			ft_dlstiter(t_d_list *lst, void (*f)(t_d_list *elem));
-t_d_list			*ft_dlstmap(t_d_list *lst, t_d_list *(*f)(t_d_list *elem));
+t_d_list		*ft_dlstmap(t_d_list *lst, t_d_list *(*f)(t_d_list *elem));
 
 
 # define CHECK_RETURN(c, r) if(c) return (r);
@@ -117,7 +117,7 @@ int				ft_islower(int c);
 int				ft_isspace(int c);
 char			*ft_itoa_base(intmax_t value, int base);
 char			*ft_strndup(const char *s1, size_t n);
-void			ft_swapnfree(char **var, char *new_val);
+void			ft_swapnfree(void **var, void *new_val);
 size_t			ft_atou_base(const char *value, unsigned char base);
 char			*ft_appendwchar(wchar_t wc, char *str);
 char			*ft_utoa_base(uintmax_t value, int base);
