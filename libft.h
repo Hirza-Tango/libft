@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 12:02:56 by dslogrov          #+#    #+#             */
-/*   Updated: 2019/06/27 16:18:20 by dslogrov         ###   ########.fr       */
+/*   Updated: 2019/06/27 16:44:08 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,11 @@ char			*ft_itoa(intmax_t n);
 void			ft_putchar(char c);
 void			ft_putstr(char const *s);
 void			ft_putendl(char const *s);
-void			ft_putnbr(int n);
+void			ft_putnbr(intmax_t n);
 void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl_fd(char const *s, int fd);
-void			ft_putnbr_fd(int n, int fd);
+void			ft_putnbr_fd(intmax_t n, int fd);
 
 typedef struct	s_list
 {
@@ -137,5 +137,7 @@ void			ft_lstrm(t_list **list, size_t index,
 	void (*del)(void *, size_t));
 void			ft_putptr_fd(void *ptr, int fd);
 void			ft_putptr(void *ptr);
+void			ft_put_uintmax_base_fd(uintmax_t n, int fd, int base);
+void			ft_put_uintmax_base(uintmax_t n, int base);
 
 #endif
