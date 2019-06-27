@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 16:32:31 by dslogrov          #+#    #+#             */
-/*   Updated: 2019/06/27 17:00:28 by dslogrov         ###   ########.fr       */
+/*   Updated: 2019/06/27 17:05:33 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_put_uintmax_base_fd(uintmax_t n, int fd, int base)
 		ft_putchar_fd(n - 10 + 'a', fd);
 	else
 	{
-		ft_put_uintmax_base_fd(n / (unsigned)base, fd, base);
+		ft_put_uintmax_base_fd(n / (unsigned)base, fd, caps ? -base : base);
 		if (n % base < 10)
 			ft_putchar_fd(n % base + '0', fd);
 		else if (caps)
