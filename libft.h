@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 12:02:56 by dslogrov          #+#    #+#             */
-/*   Updated: 2019/06/27 16:44:08 by dslogrov         ###   ########.fr       */
+/*   Updated: 2019/06/28 15:42:29 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,6 @@ void			ft_dlstdel(t_d_list **alst, void (*del)(void*, size_t));
 void			ft_dlstadd(t_d_list **alst, t_d_list *new);
 void			ft_dlstiter(t_d_list *lst, void (*f)(t_d_list *elem));
 t_d_list		*ft_dlstmap(t_d_list *lst, t_d_list *(*f)(t_d_list *elem));
-
 
 # define CHECK_RETURN(c, r) if(c) return (r);
 # define MIN(X,Y) (X > Y ? Y : X)
