@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 12:02:56 by dslogrov          #+#    #+#             */
-/*   Updated: 2019/07/29 11:29:59 by dslogrov         ###   ########.fr       */
+/*   Updated: 2019/07/29 13:48:27 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ char			*ft_utoa_base(uintmax_t value, int base);
 void			ft_lstswap(t_list *a, t_list *b);
 t_list			**ft_lstsort(t_list **lst,
 	long (*f)(const void *, const void *));
-void			ft_lstappend(t_list **alst, t_list *new);
+void			ft_lstappend(t_list **alst, t_list *elem);
 char			*ft_strmjoin(size_t count, ...);
 char			**ft_strqotsplit(char const *str);
 char			*ft_strlit(char *str, size_t n);
