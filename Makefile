@@ -23,7 +23,8 @@ CFILES=	ft_atoi.c		ft_bzero.c		ft_isalnum.c	ft_isalpha.c	\
 		ft_tabdup.c		ft_lstrev.c		ft_declen.c		ft_lstlen.c		\
 		ft_lstrm.c		ft_dlstadd.c	ft_dlstdel.c	ft_dlstdelone.c	\
 		ft_dlstnew.c	ft_dlstmap.c	ft_putptr.c		ft_putptr_fd.c	\
-		ft_put_uintmax_base.c			ft_put_uintmax_base_fd.c
+		ft_put_uintmax_base.c			ft_put_uintmax_base_fd.c		\
+		ft_hexdump.c
 
 OBJ=$(CFILES:%.c=build/%.o)
 
@@ -38,7 +39,7 @@ all: $(NAME);
 
 clean:
 	@rm -rf build/
- 
+
 fclean: clean
 	@rm -rf $(NAME)
 

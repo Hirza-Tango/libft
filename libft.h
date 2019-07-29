@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 12:02:56 by dslogrov          #+#    #+#             */
-/*   Updated: 2019/07/29 13:48:27 by dslogrov         ###   ########.fr       */
+/*   Updated: 2019/07/29 15:12:36 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,5 +138,6 @@ void			ft_putptr_fd(void *ptr, int fd);
 void			ft_putptr(void *ptr);
 void			ft_put_uintmax_base_fd(uintmax_t n, int fd, int base);
 void			ft_put_uintmax_base(uintmax_t n, int base);
+void			ft_hexdump(void *region, size_t size, off_t offset, int fd);
 
 #endif
