@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 14:23:20 by dslogrov          #+#    #+#             */
-/*   Updated: 2019/07/29 15:11:38 by dslogrov         ###   ########.fr       */
+/*   Updated: 2019/08/07 15:29:15 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void		ft_hexdump(void *region, size_t size, off_t offset, int fd)
 		j = 0;
 		while (i + j < size && j < 16)
 		{
-			pad_nbr(*(char *)(region + i + j++), fd, 2);
+			pad_nbr(*(unsigned char *)(region + i + j++), fd, 2);
 			ft_putchar_fd(' ', fd);
 		}
 		ft_putchar_fd('\n', fd);
