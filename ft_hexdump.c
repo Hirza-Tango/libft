@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 14:23:20 by dslogrov          #+#    #+#             */
-/*   Updated: 2019/08/07 15:29:15 by dslogrov         ###   ########.fr       */
+/*   Updated: 2019/08/28 16:16:47 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ static void	pad_nbr(size_t num, int fd, size_t padding)
 	ft_put_uintmax_base_fd(num, fd, 16);
 }
 
-void		ft_hexdump(void *region, size_t size, off_t offset, int fd)
+void		ft_hexdump(void *region, size_t size, off_t offset,
+	unsigned char pointer_size)
 {
 	size_t	i;
 	size_t	j;
@@ -36,15 +37,15 @@ void		ft_hexdump(void *region, size_t size, off_t offset, int fd)
 		return ;
 	while (i < size)
 	{
-		pad_nbr(offset + i, fd, 16);
-		ft_putchar_fd('\t', fd);
+		pad_nbr(offset + i, 1, pointer_size);
+		ft_putchar_fd('\t', 1);
 		j = 0;
 		while (i + j < size && j < 16)
 		{
-			pad_nbr(*(unsigned char *)(region + i + j++), fd, 2);
-			ft_putchar_fd(' ', fd);
+			pad_nbr(*(unsigned char *)(region + i + j++), 1, 2);
+			ft_putchar_fd(' ', 1);
 		}
-		ft_putchar_fd('\n', fd);
+		ft_putchar_fd('\n', 1);
 		i += 16;
 	}
 }
