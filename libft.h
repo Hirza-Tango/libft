@@ -6,7 +6,7 @@
 /*   By: dslogrov <dslogrove@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 12:02:56 by dslogrov          #+#    #+#             */
-/*   Updated: 2019/08/28 16:17:02 by dslogrov         ###   ########.fr       */
+/*   Updated: 2019/09/09 13:47:58 by dslogrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ typedef struct	s_d_list
 t_d_list		*ft_dlstnew(void const *content, size_t content_size);
 void			ft_dlstdelone(t_d_list **alst, void (*del)(void*, size_t));
 void			ft_dlstdel(t_d_list **alst, void (*del)(void*, size_t));
-void			ft_dlstadd(t_d_list **alst, t_d_list *new);
+void			ft_dlstadd(t_d_list **alst, t_d_list *elem);
 void			ft_dlstiter(t_d_list *lst, void (*f)(t_d_list *elem));
 t_d_list		*ft_dlstmap(t_d_list *lst, t_d_list *(*f)(t_d_list *elem));
 
